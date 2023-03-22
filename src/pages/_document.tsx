@@ -15,7 +15,10 @@ export default function Document() {
         <meta property="og:site_name" content="Farby" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.farby.sk/" />
-        <meta property="og:image" content="/header-logo.svg" />
+        <meta
+          property="og:image"
+          content="https://images.aktin.sk/static-upload/original/aktin/share.png"
+        />
         <meta property="og:title" content="Farby" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta httpEquiv="Cache-control" content="public" />
