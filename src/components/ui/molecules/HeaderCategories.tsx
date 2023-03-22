@@ -62,13 +62,8 @@ const HeaderCategories: FC<IHeaderCategories> = ({
 
   const currentTheme = theme === "system" ? systemTheme : theme;
 
-  const [scroll, setScroll] = useState(false);
-
   useEffect(() => {
     setMounted(true);
-    window.addEventListener("scroll", () => {
-      setScroll(window.scrollY > 50);
-    });
   }, []);
 
   if (!mounted) {
@@ -81,10 +76,7 @@ const HeaderCategories: FC<IHeaderCategories> = ({
         "border-b border-b-gray-50 bg-white dark:border-b-dark-900 dark:bg-dark-500 lg:static lg:block lg:p-0",
         isMenuOpened
           ? "fixed left-0 top-0 z-40 block h-full w-full overflow-auto py-3 pb-6"
-          : "hidden",
-        scroll
-          ? "lg:-translate-y-full lg:transition lg:duration-500 lg:ease-in-out"
-          : "lg:translate-y-0"
+          : "hidden"
       )}
     >
       <div className="container">

@@ -22,8 +22,8 @@ const Header: FC = () => {
   return (
     <>
       <header className="z-100 sticky top-0">
-        <div className="bg-gray-50 py-3 dark:bg-dark-900 lg:relative lg:z-50">
-          <div className="container flex items-center justify-between gap-4 lg:relative lg:z-50 lg:justify-start lg:gap-6 xl:gap-10">
+        <div className="bg-gray-50 py-3 dark:bg-dark-900">
+          <div className="container flex items-center justify-between gap-4 lg:justify-start lg:gap-6 xl:gap-10">
             <HeaderLogo />
 
             <HeaderNav />
