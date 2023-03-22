@@ -50,12 +50,14 @@ const headerCategoriesLink = [
 
 interface IHeaderCategories {
   closeMobileMenu: () => void;
+  openSearchBar: () => void;
   isMenuOpened: boolean;
 }
 
 const HeaderCategories: FC<IHeaderCategories> = ({
   isMenuOpened,
   closeMobileMenu,
+  openSearchBar,
 }) => {
   const { systemTheme, theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -81,7 +83,13 @@ const HeaderCategories: FC<IHeaderCategories> = ({
     >
       <div className="container">
         <div className="flex items-center gap-4 lg:hidden">
-          <div className="flex grow cursor-pointer items-center gap-1 rounded-full bg-gray-50 dark:bg-dark-700">
+          <div
+            className="flex grow cursor-pointer items-center gap-1 rounded-full bg-gray-50 dark:bg-dark-700"
+            onClick={() => {
+              closeMobileMenu();
+              openSearchBar();
+            }}
+          >
             <span className="flex items-center self-stretch px-4 text-neutral-700 hover:text-neutral-900 dark:text-white dark:hover:text-purple-500">
               <IconMagnifyingGlass className="h-5 w-5" />
             </span>
@@ -101,9 +109,13 @@ const HeaderCategories: FC<IHeaderCategories> = ({
 
         <div className="my-4 h-px bg-gray-200 dark:bg-dark-900 lg:hidden"></div>
 
-        <nav className="flex flex-col lg:flex-row lg:gap-6 lg:text-sm xl:gap-8 xxl:gap-10">
+        <nav className="flex flex-col lg:flex-row lg:flex-nowrap lg:gap-6 lg:overflow-auto lg:text-xs xl:gap-8 xl:text-sm xxl:gap-10">
           {headerCategoriesLink.map((link, index) => (
-            <Link key={index} href={link.path} className="py-2.5 lg:py-5">
+            <Link
+              key={index}
+              href={link.path}
+              className="flex-shrink-0 py-2.5 lg:py-5"
+            >
               {link.title}
             </Link>
           ))}

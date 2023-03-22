@@ -8,13 +8,17 @@ import {
 } from "@/components/icons";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 interface IHeaderSettings {
-  toggleMobileMenu: Dispatch<SetStateAction<boolean>>;
+  openMobileMenu: () => void;
+  openSearchBar: () => void;
 }
 
-const HeaderSettings: FC<IHeaderSettings> = ({ toggleMobileMenu }) => {
+const HeaderSettings: FC<IHeaderSettings> = ({
+  openMobileMenu,
+  openSearchBar,
+}) => {
   const { systemTheme, theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -29,8 +33,11 @@ const HeaderSettings: FC<IHeaderSettings> = ({ toggleMobileMenu }) => {
   }
 
   return (
-    <div className="flex flex-shrink-0 items-center gap-4 sm:gap-6 lg:gap-8">
-      <button className="hover:text-purple-500 active:text-purple-500 dark:text-white dark:hover:text-purple-300 dark:active:text-purple-300 lg:hidden">
+    <div className="flex flex-shrink-0 items-center gap-4 md:gap-6 lg:gap-8">
+      <button
+        className="hover:text-purple-500 active:text-purple-500 dark:text-white dark:hover:text-purple-300 dark:active:text-purple-300 lg:hidden"
+        onClick={() => openSearchBar()}
+      >
         <IconMagnifyingGlass className="h-7 w-7 lg:h-5 lg:w-5" />
       </button>
       <div className="relative">
@@ -59,7 +66,7 @@ const HeaderSettings: FC<IHeaderSettings> = ({ toggleMobileMenu }) => {
       </button>
       <button
         className="hover:text-purple-500 active:text-purple-500 dark:text-white dark:hover:text-purple-300 dark:active:text-purple-300 lg:hidden"
-        onClick={() => toggleMobileMenu((prev) => !prev)}
+        onClick={() => openMobileMenu()}
       >
         <IconBurger className="h-8 w-8" />
       </button>

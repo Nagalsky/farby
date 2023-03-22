@@ -1,5 +1,5 @@
-import { useScrollLock } from "@mantine/hooks";
 import { FC, useState } from "react";
+import { lock, unlock } from "tua-body-scroll-lock";
 import HeaderCategories from "../molecules/HeaderCategories";
 import HeaderLogo from "../molecules/HeaderLogo";
 import HeaderNav from "../molecules/HeaderNav";
@@ -8,15 +8,26 @@ import HeaderSettings from "../molecules/HeaderSettings";
 
 const Header: FC = () => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
+  const [isSearchBarOpened, setIsSearchBarOpened] = useState(false);
 
-  useScrollLock(isMenuOpened);
-
-  const toggleMobileMenu = () => {
-    setIsMenuOpened((prev) => !prev);
+  const openMobileMenu = () => {
+    setIsMenuOpened(true);
+    lock();
   };
 
   const closeMobileMenu = () => {
     setIsMenuOpened(false);
+    unlock();
+  };
+
+  const openSearchBar = () => {
+    setIsSearchBarOpened(true);
+    lock();
+  };
+
+  const closeSearchBar = () => {
+    setIsSearchBarOpened(false);
+    unlock();
   };
 
   return (
@@ -28,15 +39,22 @@ const Header: FC = () => {
 
             <HeaderNav />
 
-            <HeaderSearch />
+            <HeaderSearch
+              closeSearchBar={closeSearchBar}
+              isSearchBarOpened={isSearchBarOpened}
+            />
 
-            <HeaderSettings toggleMobileMenu={toggleMobileMenu} />
+            <HeaderSettings
+              openMobileMenu={openMobileMenu}
+              openSearchBar={openSearchBar}
+            />
           </div>
         </div>
 
         <HeaderCategories
           isMenuOpened={isMenuOpened}
           closeMobileMenu={closeMobileMenu}
+          openSearchBar={openSearchBar}
         />
       </header>
     </>
