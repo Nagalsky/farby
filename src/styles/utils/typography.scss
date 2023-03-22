@@ -1,0 +1,17 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-bold;
+}
+
+button,
+a {
+  @apply cursor-pointer transition duration-150 ease-in-out;
+}
+
+a {
+  @apply text-neutral-900 hover:text-purple-500 active:text-purple-500 dark:text-white dark:hover:text-purple-300 dark:active:text-purple-300;
+}
