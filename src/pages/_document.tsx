@@ -2,7 +2,7 @@ import { Head, Html, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html lang="en" data-theme="mytheme">
       <Head>
         <meta
           name="keywords"
@@ -19,7 +19,7 @@ export default function Document() {
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta httpEquiv="Cache-control" content="public" />
       </Head>
-      <body className="font-base text-neutral-900 antialiased dark:bg-dark-500 dark:text-white">
+      <body className="font-body text-neutral-900 antialiased dark:bg-dark-500 dark:text-white">
         <Main />
         <NextScript />
       </body>

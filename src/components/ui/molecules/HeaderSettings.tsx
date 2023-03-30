@@ -35,7 +35,7 @@ const HeaderSettings: FC<IHeaderSettings> = ({
   return (
     <div className="flex flex-shrink-0 items-center gap-4 md:gap-6 lg:gap-8">
       <button
-        className="hover:text-purple-500 active:text-purple-500 dark:text-white dark:hover:text-purple-300 dark:active:text-purple-300 lg:hidden"
+        className="hover:text-primary-500 active:text-primary-500 dark:text-white dark:hover:text-primary-300 dark:active:text-primary-300 lg:hidden"
         onClick={() => openSearchBar()}
       >
         <IconMagnifyingGlass className="h-7 w-7 lg:h-5 lg:w-5" />
@@ -43,17 +43,20 @@ const HeaderSettings: FC<IHeaderSettings> = ({
       <div className="relative">
         <Link
           href="/cart"
-          className="dark:text-white dark:hover:text-purple-300 dark:active:text-purple-300"
+          className="dark:text-white dark:hover:text-primary-300 dark:active:text-primary-300"
         >
           <IconShoppingCart className="h-6 w-6 lg:h-5 lg:w-5" />
         </Link>
       </div>
-      <button className="hover:text-purple-500 active:text-purple-500 dark:text-white dark:hover:text-purple-300 dark:active:text-purple-300">
+      <Link
+        href="/auth/signin"
+        className="hover:text-primary-500 active:text-primary-500 dark:text-white dark:hover:text-primary-300 dark:active:text-primary-300"
+      >
         <IconUser className="h-6 w-6 lg:h-5 lg:w-5" />
-      </button>
+      </Link>
       <button
         role="button"
-        className="hidden hover:text-purple-500 active:text-purple-500 dark:text-white dark:hover:text-purple-300 dark:active:text-purple-300 lg:block"
+        className="hidden hover:text-primary-500 active:text-primary-500 dark:text-white dark:hover:text-primary-300 dark:active:text-primary-300 lg:block"
         onClick={() =>
           currentTheme === "dark" ? setTheme("light") : setTheme("dark")
         }
@@ -65,7 +68,7 @@ const HeaderSettings: FC<IHeaderSettings> = ({
         )}
       </button>
       <button
-        className="hover:text-purple-500 active:text-purple-500 dark:text-white dark:hover:text-purple-300 dark:active:text-purple-300 lg:hidden"
+        className="hover:text-primary-500 active:text-primary-500 dark:text-white dark:hover:text-primary-300 dark:active:text-primary-300 lg:hidden"
         onClick={() => openMobileMenu()}
       >
         <IconBurger className="h-8 w-8" />

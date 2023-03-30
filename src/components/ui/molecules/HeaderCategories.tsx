@@ -1,8 +1,8 @@
 import { IconDark, IconLight, IconMagnifyingGlass } from "@/components/icons";
-import clsxm from "@/utils/clsxm";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";
+import clsxm from "../../../utils/clsxm";
 import { IconXMark } from "../../icons/index";
 
 const headerCategoriesLink = [
@@ -90,7 +90,7 @@ const HeaderCategories: FC<IHeaderCategories> = ({
               openSearchBar();
             }}
           >
-            <span className="flex items-center self-stretch px-4 text-neutral-700 hover:text-neutral-900 dark:text-white dark:hover:text-purple-500">
+            <span className="flex items-center self-stretch px-4 text-neutral-700 hover:text-neutral-900 dark:text-white dark:hover:text-primary-500">
               <IconMagnifyingGlass className="h-5 w-5" />
             </span>
             <div className="flex h-[38px] w-full grow items-center border-0 bg-transparent px-0 focus:shadow-none focus:outline-none focus:ring-0 dark:text-white">
@@ -100,7 +100,7 @@ const HeaderCategories: FC<IHeaderCategories> = ({
 
           <button
             role="button"
-            className="hover:text-purple-500 active:text-purple-500 dark:text-white dark:hover:text-purple-300 dark:active:text-purple-300"
+            className="hover:text-primary-500 active:text-primary-500 dark:text-white dark:hover:text-primary-300 dark:active:text-primary-300"
             onClick={() => closeMobileMenu()}
           >
             <IconXMark className="h-6 w-6" />
@@ -133,7 +133,7 @@ const HeaderCategories: FC<IHeaderCategories> = ({
           <p>Switch theme</p>
           <button
             role="button"
-            className="hover:text-purple-500 active:text-purple-500 dark:text-white dark:hover:text-purple-300 dark:active:text-purple-300 lg:hidden"
+            className="hover:text-primary-500 active:text-primary-500 dark:text-white dark:hover:text-primary-300 dark:active:text-primary-300 lg:hidden"
             onClick={() =>
               currentTheme === "dark" ? setTheme("light") : setTheme("dark")
             }

@@ -1,7 +1,7 @@
-import clsxm from "@/utils/clsxm";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
+import clsxm from "../../../utils/clsxm";
 
 const headerNavLinks = [
   {
@@ -33,7 +33,7 @@ const HeaderNav: FC = () => {
           href={link.path}
           className={clsxm(
             "text-sm font-bold",
-            router.pathname === link.path && "text-purple-500"
+            router.pathname === link.path && "text-primary-500"
           )}
         >
           {link.title}

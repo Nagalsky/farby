@@ -1,7 +1,14 @@
 import Meta from "@/components/seo/Meta";
-import { FC } from "react";
+import { signOut, useSession } from "next-auth/react";
+import { FC, useEffect } from "react";
 
 const Home: FC = () => {
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    console.log(session);
+  }, [session]);
+
   return (
     <>
       <Meta title="L&Š Obchodné centrum Nitra - farby-laky, železiarstvo, stavebniny" />
@@ -9,6 +16,30 @@ const Home: FC = () => {
       <section className="py-8">
         <div className="container">
           <h1>Home page</h1>
+
+          {/* <p className="bg-red-500">{process.env.GOOGLE_ID}</p> */}
+
+          {session?.user && (
+            <>
+              <button
+                onClick={() =>
+                  signOut({
+                    callbackUrl: `${window.location.origin}`,
+                  })
+                }
+                className="w-full rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300"
+              >
+                Logout
+              </button>
+
+              <div className="mb-6 break-all">
+                <pre className="whitespace-pre-wrap">
+                  {JSON.stringify(session, null, 2)}
+                </pre>
+              </div>
+            </>
+          )}
+
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime
             minima, rem illo aspernatur aperiam molestias delectus id

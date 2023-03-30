@@ -2,9 +2,21 @@
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class",
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          primary: "#f6d860",
+          secondary: "#f6d860",
+          accent: "#37cdbe",
+          neutral: "#3d4451",
+        },
+      },
+    ],
+  },
   theme: {
     fontFamily: {
-      base: ["Noto Sans", "sans-serif"],
+      body: ["Noto Sans", "sans-serif"],
     },
     container: {
       center: true,
@@ -20,7 +32,7 @@ module.exports = {
     },
     extend: {
       colors: {
-        purple: {
+        primary: {
           50: "#E3F2FC",
           100: "#C7E5F9",
           200: "#90CCF4",

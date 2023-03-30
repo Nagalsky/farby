@@ -1,6 +1,6 @@
 import { IconMagnifyingGlass, IconXMark } from "@/components/icons";
-import clsxm from "@/utils/clsxm";
 import { FC, useEffect, useRef } from "react";
+import clsxm from "../../../utils/clsxm";
 
 interface IHeaderSearch {
   closeSearchBar: () => void;
@@ -30,7 +30,7 @@ const HeaderSearch: FC<IHeaderSearch> = ({
     >
       <div className="flex items-center gap-4">
         <form className="flex grow items-center gap-1 rounded-full bg-gray-50 dark:bg-dark-900 lg:bg-white dark:lg:bg-dark-500">
-          <button className="self-stretch px-4 text-neutral-700 hover:text-neutral-900 dark:text-white dark:hover:text-purple-500">
+          <button className="self-stretch px-4 text-neutral-700 hover:text-neutral-900 dark:text-white dark:hover:text-primary-500">
             <IconMagnifyingGlass className="h-5 w-5" />
           </button>
           <input
@@ -43,7 +43,7 @@ const HeaderSearch: FC<IHeaderSearch> = ({
 
         <button
           role="button"
-          className="hover:text-purple-500 active:text-purple-500 dark:text-white dark:hover:text-purple-300 dark:active:text-purple-300 lg:hidden"
+          className="hover:text-primary-500 active:text-primary-500 dark:text-white dark:hover:text-primary-300 dark:active:text-primary-300 lg:hidden"
           onClick={() => closeSearchBar()}
         >
           <IconXMark className="h-6 w-6" />
