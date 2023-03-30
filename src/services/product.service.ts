@@ -1,4 +1,4 @@
-import instance from "@/lib/api";
+import { instance } from "@/lib/api";
 import { IProduct } from "@/types/product.interface";
 
 export const ProductService = {

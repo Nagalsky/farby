@@ -49,7 +49,7 @@ const HeaderSettings: FC<IHeaderSettings> = ({
         </Link>
       </div>
       <Link
-        href="/auth/signin"
+        href="/auth/login"
         className="hover:text-primary-500 active:text-primary-500 dark:text-white dark:hover:text-primary-300 dark:active:text-primary-300"
       >
         <IconUser className="h-6 w-6 lg:h-5 lg:w-5" />

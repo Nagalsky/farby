@@ -1,4 +1,4 @@
-import instance from "@/lib/api";
+import { instance } from "@/lib/api";
 
 export const AuthService = {
   async signIn({ email, password }: { email: string; password: string }) {

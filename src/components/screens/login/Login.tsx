@@ -11,7 +11,7 @@ type FormData = {
   password: string;
 };
 
-const SignIn: FC = () => {
+const Login: FC = () => {
   const router = useRouter();
   const { data: session } = useSession();
   const callbackUrl = (router.query?.callbackUrl as string) ?? "/";
@@ -50,25 +50,12 @@ const SignIn: FC = () => {
 
   useEffect(() => {
     if (session) {
+      // @ts-ignore
+      localStorage.setItem("jwt", session?.user?.jwt);
+
       router.push(callbackUrl);
     }
   }, [callbackUrl, router, session]);
-
-  // const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-
-  //   signIn("credentials", {
-  //     email: e.target?.email.value,
-  //     password: e.target?.password.value,
-  //     redirect: false,
-  //   }).then(({ ok, error }) => {
-  //     if (ok) {
-  //       router.push(callbackUrl);
-  //     } else {
-  //       console.warn("error: ", error);
-  //     }
-  //   });
-  // };
 
   return (
     <>
@@ -142,4 +129,4 @@ const SignIn: FC = () => {
   );
 };
 
-export default SignIn;
+export default Login;
